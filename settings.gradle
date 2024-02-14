@@ -2,4 +2,5 @@ rootProject.name = 'tms'
 include 'homework1'
 include 'homework2'
 include 'homework3'
+include 'habrTasks'
 
