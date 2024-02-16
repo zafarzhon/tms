@@ -11,14 +11,17 @@ import java.util.Scanner;
  */
 public class ThirdTask {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        if (n <= 0) {
-            System.err.println("n must greater than 0!!!");
-        } else {
-            for (int i = 0; i < n; i++) {
-                if (i % 3 == 0 && i % 2 == 1) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            int n = scanner.nextInt();
+            int i = 0;
+            while (i != n) {
+                if (i % 3 == 0 && i % 2 != 0) {
                     System.out.println(i);
+                }
+                if (n > 0) {
+                    i++;
+                } else {
+                    i--;
                 }
             }
         }
