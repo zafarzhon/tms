@@ -12,33 +12,33 @@ import java.util.Scanner;
  */
 public class FirstTask {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        if (n <= 0 || n >= 10000) {
-            System.err.println("n great 10000 or less 0!");
-        } else {
-            int signs = (int) Math.log10(n) + 1;
-            int tempSigns = signs;
-            if (signs == 4) {
-                System.out.print(n / 1000 + " тысяч, ");
-                n %= 1000;
-                signs--;
+        try (Scanner scanner = new Scanner(System.in)) {
+            int n = scanner.nextInt();
+            if (n <= 0 || n >= 10000) {
+                System.err.println("n great 10000 or less 0!");
+            } else {
+                int signs = (int) Math.log10(n) + 1;
+                int tempSigns = signs;
+                if (signs == 4) {
+                    System.out.print(n / 1000 + " тысяч, ");
+                    n %= 1000;
+                    signs--;
+                }
+                if (signs == 3) {
+                    System.out.print(n / 100 + " сотни, ");
+                    n %= 100;
+                    signs--;
+                }
+                if (signs == 2) {
+                    System.out.print(n / 10 + " десятка, ");
+                    n %= 10;
+                    signs--;
+                }
+                if (signs == 1) {
+                    System.out.print(n % 10 + " единиц, ");
+                }
+                System.out.println("всего " + tempSigns + " знака");
             }
-            if (signs == 3) {
-                System.out.print(n / 100 + " сотни, ");
-                n %= 100;
-                signs--;
-            }
-            if (signs == 2) {
-                System.out.print(n / 10 + " десятка, ");
-                n %= 10;
-                signs--;
-            }
-            if (signs == 1) {
-                System.out.print(n % 10 + " единиц, ");
-            }
-            System.out.println("всего " + tempSigns + " знака");
         }
-
     }
 }
