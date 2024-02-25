@@ -25,7 +25,7 @@ public class FirstTask {
         for (int value : array) {
             sum += value;
         }
-        return sum;
+        return sum / array.length;
     }
 
     private static int[] getReverseArray(int[] array) {
