@@ -17,14 +17,12 @@ public class SecondTask {
             length = scanner.nextInt();
         }
         int[] array = new int[length];
-        int x = 1;
-        int y = 0;
-        int z;
-        for (int i = 0; i < length; i++) {
-            z = x + y;
-            x = y;
-            y = z;
-            array[i] = x;
+        System.out.println(array[0]);
+        if (length >= 2) {
+            array[1] = 1;
+        }
+        for (int i = 2; i < length; i++) {
+            array[i] = array[i - 1] + array[i - 2];
         }
         System.out.println(Arrays.toString(array));
     }
