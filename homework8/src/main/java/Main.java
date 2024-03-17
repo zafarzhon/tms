@@ -4,18 +4,26 @@
  */
 public class Main {
     public static void main(String[] args) {
-        Patient patient = new Patient();
-        patient.setTreatmentPlan("Убрать один зуб блаблабла");
-        patient.setDoctor(Therapist.appointDoctor(new Dentist()));
+        /*
+           code 0 - Therapist
+           code 1 - Surgeon
+           code 2 - Dentist
+        */
 
-        System.out.println(patient.getDoctor().treat());
+        Therapist therapist = (Therapist) DoctorFactory.getDoctor("THeraPist");
 
+        Patient[] patients = new Patient[]{new Patient(0), new Patient(1),
+                new Patient(2)};
 
-        Patient patient1 = new Patient();
-        patient1.setTreatmentPlan("отрезать палец блп блп бла");
-        patient1.setDoctor(Therapist.appointDoctor(new Surgeon()));
+        for (Patient patient : patients) {
+            therapist.appointDoctor(patient);
+            System.out.println(patient.getDoctor());
+        }
 
-        System.out.println(patient1.getDoctor().treat());
+        for (Patient patient : patients) {
+            System.out.println(patient.getDoctor().treat());
+        }
+
 
     }
 }

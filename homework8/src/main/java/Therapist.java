@@ -4,11 +4,13 @@
  */
 public class Therapist extends Doctor {
     @Override
-    public String treat() {
+    String treat() {
         return "Выпить таблетки. много спать!!!";
     }
 
-    static public Doctor appointDoctor(Doctor doctor) {
-        return doctor;
+    public void appointDoctor(Patient patient) {
+        int treatmentPlan = patient.getTreatmentPlan();
+        Doctor doctor = DoctorFactory.getDoctor(treatmentPlan);
+        patient.setDoctor(doctor);
     }
 }

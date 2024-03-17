@@ -4,7 +4,7 @@
  */
 public class Surgeon extends Doctor {
     @Override
-    public String treat() {
+    String treat() {
         return "Сделать операцию!!!";
     }
 }

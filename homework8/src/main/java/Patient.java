@@ -5,7 +5,16 @@
 public class Patient {
     private Doctor doctor;
 
-    private String TreatmentPlan;
+    private int treatmentPlan;
+
+    public Patient(int treatmentPlan) {
+        this.treatmentPlan = treatmentPlan;
+    }
+
+    public Patient(Doctor doctor, int treatmentPlan) {
+        this(treatmentPlan);
+        this.doctor = doctor;
+    }
 
 
     public Doctor getDoctor() {
@@ -16,11 +25,11 @@ public class Patient {
         this.doctor = doctor;
     }
 
-    public String getTreatmentPlan() {
-        return TreatmentPlan;
+    public int getTreatmentPlan() {
+        return treatmentPlan;
     }
 
-    public void setTreatmentPlan(String treatmentPlan) {
-        TreatmentPlan = treatmentPlan;
+    public void setTreatmentPlan(int treatmentPlan) {
+        this.treatmentPlan = treatmentPlan;
     }
 }
