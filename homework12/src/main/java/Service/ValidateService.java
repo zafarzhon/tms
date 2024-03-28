@@ -12,36 +12,34 @@ public class ValidateService {
             final String login,
             final String password,
             final String confirmPassword) {
-        return validateLogin(login) && validatePassword(password,
-                confirmPassword);
-    }
-
-    private static boolean validateLogin(final String login) {
-        if (login.contains(" ") || (login.length() < 4 || login.length() > 20)) {
-            try {
-                throw new InvalidLoginException("Invalid login");
-            } catch (InvalidLoginException e) {
-                System.out.println(e.getMessage());
-                return false;
-            }
+        try {
+            validateLogin(login);
+        } catch (InvalidLoginException e) {
+            return false;
+        }
+        try {
+            validatePassword(password, confirmPassword);
+        } catch (InvalidPasswordException e) {
+            return false;
         }
         return true;
     }
 
-    private static boolean validatePassword(final String password,
-                                            final String confirmPassword) {
-        if (password != confirmPassword
+    private static void validateLogin(final String login) throws InvalidLoginException {
+        if (login.contains(" ") || (login.length() < 4 || login.length() > 20)) {
+            throw new InvalidLoginException("Invalid login");
+        }
+    }
+
+    private static void validatePassword(final String password,
+                                         final String confirmPassword)
+            throws InvalidPasswordException {
+        if (!password.equals(confirmPassword)
                 || password.contains(" ")
                 || (password.length() < 4 || password.length() > 20)
                 || !password.matches(".*\\d+.*")
         ) {
-            try {
-                throw new InvalidPasswordException("Invalid password");
-            } catch (InvalidPasswordException e) {
-                System.out.println(e.getMessage());
-                return false;
-            }
+            throw new InvalidPasswordException("Invalid password");
         }
-        return true;
     }
 }
