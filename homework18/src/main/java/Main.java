@@ -1,6 +1,8 @@
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @author Zafarzhon Odilov
@@ -114,7 +116,7 @@ public class Main {
                 .stream()
                 .flatMap(p -> p.getListStories().stream())
                 .distinct()
-                .collect(Collectors.toMap(Store::getId,Store::getPhoneNumber)));
+                .collect(Collectors.toMap(Store::getId, Store::getPhoneNumber)));
 
         System.out.println("10) узнать все ли товары указанной категории можно доставить до покупателя");
         System.out.println(productList
@@ -135,6 +137,29 @@ public class Main {
                 .stream()
                 .sorted(Comparator.comparingDouble(Product::getPrice).reversed())
                 .toList());
+        //--------------------SECOND-PART---------------------------------------
+
+        System.out.println("1) Найти среднее значение первых 10 чисел.");
+        System.out.println(IntStream
+                .iterate(1,i->++i)
+                .limit(10)
+                .average().orElse(0.0));
+
+        System.out.println("2) Пропустить 5 чисел и вывести следующие 10 чисел, которые делятся на 3 без\n" +
+                "    остатка");
+        System.out.println(IntStream
+                .iterate(1,i->++i)
+                .filter(i -> i % 3 == 0)
+                .skip(5)
+                .limit(10)
+                .boxed()
+                .collect(Collectors.toList()));
+
+        System.out.println("3) Посчитать сумму 20 подряд идущих чисел");
+        System.out.println(IntStream
+                .iterate(1, i -> ++i)
+                .limit(20)
+                .sum());
 
 
     }
