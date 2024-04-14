@@ -1,5 +1,6 @@
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.IntBinaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -93,7 +94,52 @@ public class Main {
                 "котоая будет соединять исходные при помощь запятой -> “test1”, “test2”, “test3” -> “test1,test2,test3”");
         System.out.println(Stream.of("test1", "test2", "test3").collect(Collectors.joining(",")));
 
+//        System.out.println("Есть стрим из чисел\n" +
+//                "Необходимо взять n-количество подряд идущий чисел и определить сколько в них четных а сколько не-четных.\n" +
+//                "Так же посчитать сумму четных и нечетных чисел.\n" +
+//                "Результат представить в виде map<Type, Integer>");
+//        AtomicInteger countOdd = new AtomicInteger(0);
+//        AtomicInteger countEven = new AtomicInteger(0);
+//        AtomicInteger oddSum = new AtomicInteger(0);
+//        AtomicInteger evenSum= new AtomicInteger(0);
+//        IntStream
+//                .iterate(1,i->++i)
+//                .limit(10)
+//                .forEach(i-> {
+//                    if(i%2==0){
+//                        countEven.incrementAndGet();
+//                        evenSum.accumulateAndGet(i, (l,r)->l+r);
+//                    }else{
+//                        countOdd.incrementAndGet();
+//                        oddSum.accumulateAndGet(i, (l,r)->l+r);
+//                    }
+//                });
+//        Map<String,Integer> map = Map.of(String.valueOf(countOdd.get()),
+//                oddSum.get(), String.valueOf(countEven.get()),evenSum.get());
+//        System.out.println(map);
 
+//        IntStream
+//                .iterate(1,i->++i)
+//                .limit(10)
+//                .collect(Collectors.collectingAndThen(Collectors.partitioningBy(num->{
+//                    Integer i = (Integer) num;
+//                    return Object(i.longValue()%2==0);
+//                })))
+
+        Stream<Integer> stream = Stream.iterate(1,i->++i).limit(10);
+        // false -> for even numbers
+        // true  -> for odd  numbers
+//        Map<Boolean, Integer> collect = stream.collect(Collectors.partitioningBy(i -> i % 2 == 0,
+//                Collectors.summingInt(Integer::intValue)));
+//        System.out.println(collect);
+        // or
+        Map<Boolean, IntSummaryStatistics> collect =
+                stream.collect(Collectors.partitioningBy(i -> i % 2 == 0,
+                Collectors.summarizingInt(Integer::intValue)));
+        for(Boolean st : collect.keySet()){
+            System.out.println(st+" : "+collect.get(st).getSum()+"\n"+"Count " +
+                    ": " + collect.get(st).getCount());
+        }
 
     }
 }
