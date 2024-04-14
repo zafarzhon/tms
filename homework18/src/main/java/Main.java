@@ -100,8 +100,8 @@ public class Main {
                 "Результат представить в виде map<Type, Integer>");
 
         Stream<Integer> stream = Stream.iterate(1,i->++i).limit(10);
-        // false -> for even numbers
-        // true  -> for odd  numbers
+        // false -> for odd numbers
+        // true  -> for even  numbers
 //        Map<Boolean, Integer> collect = stream.collect(Collectors.partitioningBy(i -> i % 2 == 0,
 //                Collectors.summingInt(Integer::intValue)));
 //        System.out.println(collect);
