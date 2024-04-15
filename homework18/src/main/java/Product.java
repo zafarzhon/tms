@@ -13,7 +13,7 @@ public class Product {
     private String name;
     private double price;
     private Category category;
-    List<Store> listStories;
+    private List<Store> listStories;
     private boolean onDelivery;
     private Producer producer;
 
