@@ -52,7 +52,7 @@ public class Main {
         System.out.println(productList.stream().map(Product::getProducer).filter(producer -> producer.getCountry().equalsIgnoreCase("россия")).map(Producer::getName).distinct().collect(Collectors.toList()));
 
         System.out.println("6) найти все магазины конкретного города");
-        System.out.println(productList.stream().flatMap(p -> p.getListStories().stream()).distinct().filter(s -> s.getCity().equalsIgnoreCase("минск")).collect(Collectors.toList()));
+        System.out.println(productList.stream().flatMap(p -> p.getListStories().stream()).filter(s -> s.getCity().equalsIgnoreCase("минск")).distinct().collect(Collectors.toList()));
 
         System.out.println("7) найти адрес магазина по указанному номеру телефона");
         System.out.println(productList.stream().flatMap(product -> product.getListStories().stream()).filter(s -> s.getPhoneNumber().equalsIgnoreCase("8 (590) 556-14-67")).distinct().map(Store::getAddress).collect(Collectors.joining()));
