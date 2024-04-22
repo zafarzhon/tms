@@ -1,3 +1,5 @@
+import java.util.stream.IntStream;
+
 /**
  * @author Zafarzhon Odilov
  * @link <a href="https://github.com/zafarzhon">github.com/zafarzhon</a>
@@ -32,27 +34,15 @@ public class Main {
     }
 
     private static void secondTask() throws InterruptedException {
-        int[] nums = new int[10_000_000];
-        for (int i = 0; i < 10_000_000; i++) {
-            nums[i] = i;
-        }
+        IntStream intStream1 = IntStream.iterate(1, i -> ++i).limit(10_000_000);
+        IntStream intStream2 = IntStream.iterate(1, i -> ++i).limit(10_000_000);
 
         Thread thread1 = new Thread(() -> {
-            int max = nums[0];
-            for (int i = 1; i < 10_000_000; i++) {
-                if (nums[i] > max) {
-                    max = nums[i];
-                }
-            }
+            int max = intStream1.max().orElse(-1);
             System.out.println(max);
         });
         Thread thread2 = new Thread(() -> {
-            int min = nums[0];
-            for (int i = 1; i < 10_000_000; i++) {
-                if (nums[i] < min) {
-                    min = nums[i];
-                }
-            }
+            int min = intStream2.min().orElse(-1);
             System.out.println(min);
         });
         thread1.start();
@@ -62,8 +52,8 @@ public class Main {
     }
 
     private static void thirdTask() throws InterruptedException {
-        Thread daemon = new Thread(()->{
-            while(true){
+        Thread daemon = new Thread(() -> {
+            while (true) {
                 System.out.println("I'm daemon thread");
                 try {
                     Thread.sleep(1000);
@@ -78,32 +68,31 @@ public class Main {
     }
 
     private static void fourthTask() {
-        Thread thread1 = new Thread(()->{
-            while(true){
-                synchronized (Main.class){
-                    for(int i = 0;i<3;i++){
+        Thread thread1 = new Thread(() -> {
+            while (true) {
+                synchronized (Main.class) {
+                    for (int i = 0; i < 3; i++) {
                         System.out.println(1);
                     }
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
                 }
-
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
-        Thread thread2 = new Thread(()->{
-            while(true){
-                synchronized (Main.class){
-                    for(int i = 0;i<3;i++){
+        Thread thread2 = new Thread(() -> {
+            while (true) {
+                synchronized (Main.class) {
+                    for (int i = 0; i < 3; i++) {
                         System.out.println(2);
                     }
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
             }
         });
