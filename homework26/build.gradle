@@ -11,8 +11,21 @@ repositories {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api
+    compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api
+    // https://mvnrepository.com/artifact/org.eclipse.jetty/apache-jstl
+    implementation group: 'org.eclipse.jetty', name: 'apache-jstl', version: '11.0.0'
+
+//    implementation group: 'jakarta.servlet.jsp.jstl', name: 'jakarta.servlet.jsp.jstl-api', version: '3.0.0'
+
 }
 
 test {
