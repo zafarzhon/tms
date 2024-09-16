@@ -17,6 +17,13 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     implementation group: 'org.eclipse.jetty', name: 'apache-jstl', version: '11.0.0'
 
+    // https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api
+    implementation group: 'jakarta.validation', name: 'jakarta.validation-api', version: '3.0.2'
+
+    implementation group: 'org.hibernate.validator', name: 'hibernate-validator', version: '7.0.5.Final'
+
+
+
     // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '6.1.11'
 // https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api

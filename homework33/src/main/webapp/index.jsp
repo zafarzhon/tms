@@ -40,7 +40,7 @@
 
         <div class="mb-3 form-check">
             <input type="radio" class="form-check-input" id="not_viewed"
-                   name="isView" value="false">
+                   name="isView" value="false" checked>
             <label class="form-check-label" for="not_viewed">not viewed</label>
             <br>
             <input type="radio" class="form-check-input" id="viewed"

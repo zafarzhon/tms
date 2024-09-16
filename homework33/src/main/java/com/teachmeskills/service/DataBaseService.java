@@ -20,7 +20,9 @@ public class DataBaseService {
     private final MovieMapper movieMapper;
     private List<Movie> allMovies;
 
-    public void save(String name, String description, Integer releaseYear,
+    public void save(String name,
+                     String description,
+                     Integer releaseYear,
                      Boolean isView) {
         jdbcTemplate.update("insert into movies (name, description, " +
                         "release_year, is_view) values (?,?,?,?)", name, description,
@@ -39,13 +41,14 @@ public class DataBaseService {
     public void delete(UUID id) {
         jdbcTemplate.update("delete from movies where id = ?", id);
     }
+
     public void update(UUID id,
                        String name,
                        String description,
                        Integer releaseYear,
-                       Boolean isView){
+                       Boolean isView) {
         jdbcTemplate.update("update movies set name=?,description=?," +
-                "release_year=?,is_view=? where id=?;",name,description,
-                releaseYear.shortValue(),isView,id);
+                        "release_year=?,is_view=? where id=?;", name, description,
+                releaseYear.shortValue(), isView, id);
     }
 }
