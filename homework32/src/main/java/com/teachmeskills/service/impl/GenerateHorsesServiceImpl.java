@@ -1,5 +1,6 @@
 package com.teachmeskills.service.impl;
 
+import com.teachmeskills.aspects.Benchmark;
 import com.teachmeskills.entity.Horse;
 import com.teachmeskills.service.DataService;
 import com.teachmeskills.service.GenerateHorsesService;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 public class GenerateHorsesServiceImpl implements GenerateHorsesService {
     private final DataService dataService;
 
+    @Benchmark
     @Override
     public void generateHorses() {
         int countHorses = (int) (Math.random() * 7 + 5);
