@@ -1,6 +1,5 @@
 package com.teachmeskills.service.impl;
 
-import com.teachmeskills.aspects.Benchmark;
 import com.teachmeskills.entity.Horse;
 import com.teachmeskills.service.DataService;
 import com.teachmeskills.service.WinnerDeterminerService;
@@ -19,7 +18,6 @@ import java.util.Optional;
 public class WinnerDeterminerServiceImpl implements WinnerDeterminerService {
     private final DataService dataService;
 
-    @Benchmark
     @Override
     public Integer determineWinner() {
         Optional<Horse> winner =

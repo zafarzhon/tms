@@ -15,6 +15,8 @@ dependencies {
     implementation group: 'org.springframework', name: 'spring-context', version: '6.1.11'
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
+// https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
+    implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.22.1'
 
 }
 
