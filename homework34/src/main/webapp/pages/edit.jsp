@@ -37,8 +37,8 @@
 </nav>
 <div class="container w-25">
     <sp:form action="/app/movies/edit" method="post"
-             modelAttribute="movieEntity">
-        <sp:input path="id" type="hidden" name="id"/>
+             modelAttribute="movieDto">
+        <input type="hidden" name="id" value="${id}"/>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Name</label>
             <sp:input path="name" type="text" class="form-control"

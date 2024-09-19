@@ -42,13 +42,13 @@ public class MovieEntity {
         this.isView = movieDto.getIsView();
     }
 
-    //    public MovieEntity(UUID id, MovieDto movieDto) {
-//        this.id = id;
-//        this.name = movieDto.getName();
-//        this.description = movieDto.getDescription();
-//        this.releaseYear = movieDto.getReleaseYear();
-//        this.isView = movieDto.getIsView();
-//    }
+        public MovieEntity(UUID id, MovieDto movieDto) {
+        this.id = id;
+        this.name = movieDto.getName();
+        this.description = movieDto.getDescription();
+        this.releaseYear = movieDto.getReleaseYear();
+        this.isView = movieDto.getIsView();
+    }
     public MovieEntity(UUID id, String name, String description, Short releaseYear, Boolean isView) {
         this.id = id;
         this.name = name;

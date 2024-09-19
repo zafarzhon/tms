@@ -62,7 +62,7 @@
                 <td>
                     <a class="btn btn-primary"
                        href="<c:url
-                       value='/app/movies/editt?id=${movie.id}'/>">edit
+                       value='/app/movies/edit?id=${movie.id}'/>">edit
                     </a>
 
                 </td>

@@ -58,31 +58,30 @@ public class HomeController {
     }
 
 
-    @GetMapping("/movies/editt")
+    @GetMapping("/movies/edit")
     public String editGetWithParam(@RequestParam("id") UUID id,
-                                   @ModelAttribute("movieEntity") MovieEntity movieEntity,
+                                   @ModelAttribute("movieDto") MovieDto movieDto,
                                    Model model) {
         MovieEntity movieByIdFound = dataBaseService.findMovieById(id);
-        model.addAttribute("movieEntity", movieByIdFound);
-        return "edit";
-    }
-
-    @GetMapping("movies/edit")
-    public String editGet(@ModelAttribute("movieEntity") @Valid MovieEntity movieEntity) {
+        MovieDto movieDtoFound = movieMapper.mapToMovieDto(movieByIdFound);
+        model.addAttribute("id", id);
+        model.addAttribute("movieDto", movieDtoFound);
         return "edit";
     }
 
     @PostMapping("/movies/edit")
-    public String editPost(@ModelAttribute("movieEntity") @Valid MovieEntity movieEntity,
+    public String editPost(@RequestParam("id") UUID id,
+                           @ModelAttribute("movieDto")
+                           @Valid MovieDto movieDto,
                            BindingResult bindingResult, Model model) {
-
         if (!bindingResult.hasErrors()) {
+            MovieEntity movieEntity = new MovieEntity(id, movieDto);
             dataBaseService.update(movieEntity);
             return "redirect:/app/movies";
         }
-        model.addAttribute("movieEntity", movieEntity);
+        model.addAttribute("id", id);
+        model.addAttribute("movieDto", movieDto);
         return "edit";
-
     }
 
     @SneakyThrows

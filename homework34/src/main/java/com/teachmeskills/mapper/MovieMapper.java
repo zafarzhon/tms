@@ -4,6 +4,8 @@ import com.teachmeskills.dto.MovieDto;
 import com.teachmeskills.entities.MovieEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 /**
  * @author zafarzhon
  * @link <a href="https://github.com/zafarzhon">github</a>
@@ -14,10 +16,10 @@ public class MovieMapper {
         return new MovieEntity(movieDto);
     }
 
-//    public MovieEntity mapToMovieEntity(UUID id, MovieDto movieDto) {
-//        return new MovieEntity(id, movieDto);
-//    }
-//    public MovieDto mapToMovieDto(MovieEntity movieEntity) {
-//        return new MovieDto(movieEntity);
-//    }
+    public MovieEntity mapToMovieEntity(UUID id, MovieDto movieDto) {
+        return new MovieEntity(id, movieDto);
+    }
+    public MovieDto mapToMovieDto(MovieEntity movieEntity) {
+        return new MovieDto(movieEntity);
+    }
 }
