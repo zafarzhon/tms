@@ -2,6 +2,7 @@ package com.teachmeskills.controller;
 
 import com.teachmeskills.dto.MovieDto;
 import com.teachmeskills.entities.MovieEntity;
+import com.teachmeskills.exceptions.MovieException;
 import com.teachmeskills.mapper.MovieMapper;
 import com.teachmeskills.service.DataBaseService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -57,7 +58,7 @@ public class HomeController {
         return "create";
     }
 
-
+    //    @ExceptionHandler("MovieException.class")
     @GetMapping("/movies/edit")
     public String editGetWithParam(@RequestParam("id") UUID id,
                                    @ModelAttribute("movieDto") MovieDto movieDto,
@@ -89,5 +90,10 @@ public class HomeController {
     public void delete(@RequestParam("id") UUID id, HttpServletResponse resp) {
         dataBaseService.delete(id);
         resp.sendRedirect("/app/movies");
+    }
+
+    @ExceptionHandler(MovieException.class)
+    public String processError() {
+        return "errors";
     }
 }
