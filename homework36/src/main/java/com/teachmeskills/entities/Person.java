@@ -22,6 +22,8 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+    private Integer age;
     @Column(name = "create_time")
     @CreationTimestamp
     private LocalDateTime createTime;
@@ -30,7 +32,7 @@ public class Person {
     private LocalDateTime updateTime;
     @Version
     private Integer version;
-    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
     public void addOrder(Order order) {
