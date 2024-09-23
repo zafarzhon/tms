@@ -28,11 +28,7 @@ public class DataBaseService {
         person.addOrder(order);
         person.addOrder(order1);
         person.addOrder(order2);
-        session.save(order);
-        session.save(order1);
-        session.save(order2);
         session.save(person);
-
         transaction.commit();
         session.close();
     }
@@ -97,6 +93,24 @@ public class DataBaseService {
         transaction.commit();
         session.close();
         return orders;
+    }
+
+    public List<Person> getPersonsByName(String name) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        List<Person> personsByName = session.createQuery("FROM Person where name = :name", Person.class)
+                .setParameter("name", name).list();
+        return personsByName;
+    }
+
+    public List<Person> getPersonsAgeLowerThan(Integer age) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        List<Person> age1 =
+                session.createQuery("from Person where age < :age", Person.class).setParameter(
+                        "age", age).list();
+
+        return age1;
     }
 
 }
