@@ -2,5 +2,7 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/homework29/src/main/java/com/teachmeskills/service/InitDbService.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/homework40/src/main/resources/db/migration/V1__create_product_table.sql" dialect="GenericSQL" />
+    <file url="PROJECT" dialect="PostgreSQL" />
   </component>
 </project>
