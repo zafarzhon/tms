@@ -52,17 +52,19 @@ public class ProductController {
         return "redirect:/storage";
     }
 
-//    @GetMapping("/remove/{id}")
-//    public String remove(@PathVariable("id") Integer id) {
-//        ProductEntity productById = productService.getProductById(id);
-//        productById.setIsRemoved(true);
-//        return "redirect:/storage";
-//    }
-//
-//    @GetMapping("/return/{id}")
-//    public String returnProduct(@PathVariable("id") Integer id) {
-//        ProductEntity productById = productService.getProductById(id);
-//        productById.setIsRemoved(false);
-//        return "redirect:/storage";
-//    }
+    @GetMapping("/remove/{id}")
+    public String remove(@PathVariable("id") Integer id) {
+        ProductDto productById = productService.getProductById(id);
+        productById.setIsRemoved(true);
+        productService.updateProduct(productById);
+        return "redirect:/storage";
+    }
+
+    @GetMapping("/return/{id}")
+    public String returnProduct(@PathVariable("id") Integer id) {
+        ProductDto productById = productService.getProductById(id);
+        productById.setIsRemoved(false);
+        productService.updateProduct(productById);
+        return "redirect:/storage";
+    }
 }
