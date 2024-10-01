@@ -1,6 +1,7 @@
 package com.teachmeskills.shop.web;
 
 import com.teachmeskills.shop.dto.ProductDto;
+import com.teachmeskills.shop.dto.SearchDto;
 import com.teachmeskills.shop.mapper.ProductMapper;
 import com.teachmeskills.shop.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -26,6 +27,7 @@ public class ProductController {
         model.addAttribute("product", new ProductDto());
         List<ProductDto> allProducts = productService.getAllProducts();
         model.addAttribute("products", allProducts);
+        model.addAttribute("searchDto", new SearchDto());
         return "home";
     }
 
@@ -66,5 +68,15 @@ public class ProductController {
         productById.setIsRemoved(false);
         productService.updateProduct(productById);
         return "redirect:/storage";
+    }
+
+    @PostMapping("/search")
+    public String searchProduct(@ModelAttribute SearchDto searchDto,
+                                Model model) {
+        List<ProductDto> search = productService.search(searchDto);
+        model.addAttribute("products", search);
+        model.addAttribute("product", new ProductDto());
+        model.addAttribute("searchDto", searchDto);
+        return "home";
     }
 }
