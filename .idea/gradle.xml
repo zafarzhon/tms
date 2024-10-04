@@ -46,6 +46,22 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hm43/bl_bicycle" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/hm43/bl_bicycle" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/hm43/il_service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/hm43/il_service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/homework38" />
         <option name="modules">
           <set>
