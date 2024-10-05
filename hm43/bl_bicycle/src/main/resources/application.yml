@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: bl_bicycle
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tms
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+server:
+  port: 8081
+app:
+  page:
+    size: 10
