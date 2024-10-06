@@ -7,6 +7,8 @@ import com.teachmeskills.il_service.model.enums.Type;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 /**
  * @author zafarzhon
  * @link <a href="https://github.com/zafarzhon">github</a>
@@ -14,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class BicycleDto {
+    private UUID id;
     private Double price;
     private Brand brand;
     private Type type;
