@@ -3,8 +3,13 @@ package com.teachmeskills.il_service.controller;
 
 import com.teachmeskills.il_service.client.BicycleClient;
 import com.teachmeskills.il_service.dto.BicycleDto;
+import com.teachmeskills.il_service.dto.ErrorDto;
 import com.teachmeskills.il_service.model.enums.Brand;
 import com.teachmeskills.il_service.model.enums.Status;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +31,28 @@ public class BicycleController {
         return bicycleClient.getByStatus(Status.FREE, page);
     }
 
+    @Operation(
+            summary = "Getting bicycle by id",
+            description = "This method used for finding bicycle by id",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "bicycle found successfully",
+                            content = @Content(
+                                    mediaType = "application/application-json",
+                                    schema = @Schema(implementation = BicycleDto.class)
+                            )
+                    ),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "bicycle does not exist",
+                            content = @Content(
+                                    mediaType = "application/application-json",
+                                    schema = @Schema(implementation = ErrorDto.class)
+                            )
+                    )
+            }
+    )
     @GetMapping("/{id}")
     public BicycleDto getById(@PathVariable UUID id) {
         return bicycleClient.getById(id);
