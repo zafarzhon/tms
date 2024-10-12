@@ -5,6 +5,7 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -47,6 +48,7 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/hm43/bl_bicycle" />
+        <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/hm43/bl_bicycle" />
@@ -55,6 +57,7 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/hm43/il_service" />
+        <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/hm43/il_service" />
@@ -63,6 +66,7 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/homework38" />
+        <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/homework38" />
@@ -71,6 +75,7 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/homework39" />
+        <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/homework39" />
@@ -79,6 +84,7 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/homework42" />
+        <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/homework42" />
@@ -87,6 +93,7 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/homework45" />
+        <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/homework45" />
@@ -95,6 +102,7 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/homework47" />
+        <option name="gradleJvm" value="zulu-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/homework47" />
