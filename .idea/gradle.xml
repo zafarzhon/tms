@@ -109,6 +109,15 @@
           </set>
         </option>
       </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/homework51" />
+        <option name="gradleJvm" value="zulu-21" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/homework51" />
+          </set>
+        </option>
+      </GradleProjectSettings>
     </option>
   </component>
 </project>
