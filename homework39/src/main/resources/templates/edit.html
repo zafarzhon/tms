@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link th:replace="templates::bootstrap"/>
+</head>
+<body>
+<div class="container w-25">
+    <form th:action="@{/storage/edit}" method="post"
+          th:object="${product}">
+        <input th:field="*{id}" type="hidden">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input th:field="*{name}" type="text" class="form-control"
+                   aria-describedby="emailHelp"
+                   id="exampleInputEmail1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Count
+            </label>
+            <input th:field="*{count}" type="number" class="form-control"
+                   id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="release_date" class="form-label">Price</label>
+            <input th:field="*{price}" type="number" step="any"
+                   class="form-control"
+                   id="release_date">
+        </div>
+        <div class="mb-3 form-check">
+            <input th:field="*{isDelivery}" type="radio"
+                   class="form-check-input"
+                   id="not_viewed"
+                   value="false"/>
+            <label class="form-check-label" for="not_viewed">Not
+                delivered</label>
+            <br>
+            <input th:field="*{isDelivery}" type="radio"
+                   class="form-check-input"
+                   id="viewed"
+                   value="true">
+            <label class="form-check-label" for="viewed">Delivered</label>
+            <input th:field="*{isRemoved}" type="hidden"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+<script th:replace="templates::bootstrap_js"></script>
+</body>
+</html>
